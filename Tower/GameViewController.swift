@@ -11,9 +11,13 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var Multigamebutt: UIButton!
+    @IBOutlet weak var SologameButt: UIButton!
+    let transition = SKTransition.flipVertical(withDuration: 0.5)
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
@@ -21,7 +25,9 @@ class GameViewController: UIViewController {
                 scene.scaleMode = .aspectFill
                 
                 // Present the scene
-                view.presentScene(scene)
+            
+                view.presentScene(scene, transition: transition)
+               
             }
             
             view.ignoresSiblingOrder = true
@@ -30,11 +36,12 @@ class GameViewController: UIViewController {
             view.showsNodeCount = true
         }
     }
-
+ 
     override var shouldAutorotate: Bool {
         return true
     }
 
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
