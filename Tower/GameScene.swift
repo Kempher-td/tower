@@ -10,7 +10,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var delegat: secvondcontroller?
+
     var sprite = SKSpriteNode(color: SKColor.white, size: CGSize(width:32, height:32))
     let bulletcatagory: UInt32 = 1*0 << 1
     var field: SKEmitterNode!

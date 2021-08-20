@@ -11,35 +11,23 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     var vc: secvondcontroller?
-    
-    @IBOutlet weak var Multigamebutt: UIButton!
-    @IBOutlet weak var SologameButt: UIButton!
-    let transition = SKTransition.flipVertical(withDuration: 0.5)
-   
-    @IBOutlet weak var stargametext: UIButton!
+ 
+    @IBOutlet weak var StartGameText: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "StartGame") as? secvondcontroller
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "Main") {
-            
-                scene.scaleMode = .aspectFill
-                
-        
-                view.presentScene(scene, transition: transition)
-            }
-        }
+        self.navigationController?.isNavigationBarHidden = true
+        StartGameText.layer.cornerRadius = 20
     }
   
     @IBAction func StartGame(_ sender: Any) {
-        guard let vcc = vc else {
-                    return
-                }
-        _ = vcc.view
+         guard let vcc = vc else {
+                     return
+                 }
+         _ = vcc.view
      
         
-        
+       
         navigationController?.show(vcc, sender: nil)
     }
     override var shouldAutorotate: Bool {

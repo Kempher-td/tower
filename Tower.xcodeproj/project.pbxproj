@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8C2A489D26C6A836001125D5 /* secvondcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A489C26C6A836001125D5 /* secvondcontroller.swift */; };
-		8C2A48A526C93F57001125D5 /* 4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A48A426C93F57001125D5 /* 4.sks */; };
-		8C2A48AA26C93F84001125D5 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A48A926C93F84001125D5 /* MainMenu.swift */; };
 		8C32171026BD4048003C0A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32170F26BD4048003C0A3A /* AppDelegate.swift */; };
 		8C32171226BD4049003C0A3A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C32171126BD4049003C0A3A /* GameScene.sks */; };
 		8C32171426BD4049003C0A3A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C32171326BD4049003C0A3A /* Actions.sks */; };
@@ -42,8 +40,6 @@
 
 /* Begin PBXFileReference section */
 		8C2A489C26C6A836001125D5 /* secvondcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secvondcontroller.swift; sourceTree = "<group>"; };
-		8C2A48A426C93F57001125D5 /* 4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = 4.sks; sourceTree = "<group>"; };
-		8C2A48A926C93F84001125D5 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		8C32170C26BD4048003C0A3A /* Tower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C32170F26BD4048003C0A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C32171126BD4049003C0A3A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -115,7 +111,6 @@
 				8C32171126BD4049003C0A3A /* GameScene.sks */,
 				8C32171326BD4049003C0A3A /* Actions.sks */,
 				8C32171526BD4049003C0A3A /* GameScene.swift */,
-				8C2A48A926C93F84001125D5 /* MainMenu.swift */,
 				8C461F5926C2F97D00E46348 /* Rain.sks */,
 				8C32171726BD4049003C0A3A /* GameViewController.swift */,
 				8C2A489C26C6A836001125D5 /* secvondcontroller.swift */,
@@ -123,7 +118,6 @@
 				8C32171926BD4049003C0A3A /* Main.storyboard */,
 				8C32171C26BD404C003C0A3A /* Assets.xcassets */,
 				8C32171E26BD404C003C0A3A /* Info.plist */,
-				8C2A48A426C93F57001125D5 /* 4.sks */,
 			);
 			path = Tower;
 			sourceTree = "<group>";
@@ -252,7 +246,6 @@
 				8C32171B26BD4049003C0A3A /* Main.storyboard in Resources */,
 				8C32171226BD4049003C0A3A /* GameScene.sks in Resources */,
 				8C32171D26BD404C003C0A3A /* Assets.xcassets in Resources */,
-				8C2A48A526C93F57001125D5 /* 4.sks in Resources */,
 				8C461F5A26C2F97D00E46348 /* Rain.sks in Resources */,
 				8C32171426BD4049003C0A3A /* Actions.sks in Resources */,
 			);
@@ -283,7 +276,6 @@
 				8C32171826BD4049003C0A3A /* GameViewController.swift in Sources */,
 				8CFA894826CFB9A100E1580B /* Skvieeew.swift in Sources */,
 				8C2A489D26C6A836001125D5 /* secvondcontroller.swift in Sources */,
-				8C2A48AA26C93F84001125D5 /* MainMenu.swift in Sources */,
 				8C32171026BD4048003C0A3A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

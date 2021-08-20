@@ -12,27 +12,37 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Tower" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5E-md-stx">
-                                <rect key="frame" x="65" y="764" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="70" y="702" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="VAh-lf-7h5"/>
+                                    <constraint firstAttribute="width" constant="60" id="eVw-eK-KjU"/>
+                                </constraints>
+                                <state key="normal" title=" Solo">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
                                 <connections>
                                     <action selector="StartGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="QL4-wN-5ng"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="F5E-md-stx" secondAttribute="bottom" constant="68" id="KAz-19-8tV"/>
-                            <constraint firstItem="F5E-md-stx" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="65" id="wYv-CN-O6o"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="F5E-md-stx" secondAttribute="bottom" constant="100" id="KAz-19-8tV"/>
+                            <constraint firstItem="F5E-md-stx" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="70" id="wYv-CN-O6o"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="swk-2G-0eQ"/>
                     <value key="contentSizeForViewInPopover" type="size" width="1284" height="2778"/>
+                    <connections>
+                        <outlet property="StartGameText" destination="F5E-md-stx" id="X53-4C-j4u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,8 +98,14 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
