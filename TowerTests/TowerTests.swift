@@ -4,7 +4,7 @@
 //
 //  Created by Victor Mashukevich on 6.08.21.
 //
-
+import Tower
 import XCTest
 @testable import Tower
 
@@ -26,7 +26,7 @@ class TowerTests: XCTestCase {
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+          
         }
     }
 

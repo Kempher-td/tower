@@ -30,11 +30,21 @@
                                     <action selector="StartGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="QL4-wN-5ng"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NF5-0m-XhA">
+                                <rect key="frame" x="303" y="702" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="TjH-Lb-4jh"/>
+                                    <constraint firstAttribute="height" constant="60" id="rar-if-n3B"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="F5E-md-stx" secondAttribute="bottom" constant="100" id="KAz-19-8tV"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="NF5-0m-XhA" secondAttribute="bottom" constant="100" id="mbb-v2-A9D"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="NF5-0m-XhA" secondAttribute="trailing" constant="51" id="vxj-ec-clk"/>
                             <constraint firstItem="F5E-md-stx" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="70" id="wYv-CN-O6o"/>
                         </constraints>
                     </view>
@@ -55,8 +65,29 @@
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="StartGame" id="EI4-TJ-4Y4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzk-KI-uSR">
+                                <rect key="frame" x="264" y="144" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Upx-ib-tQd"/>
+                                    <constraint firstAttribute="height" constant="100" id="tCK-5c-FjZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6R-Ul-rP4">
+                                <rect key="frame" x="186" y="340" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7YB-kY-l2U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kzk-KI-uSR" firstAttribute="top" secondItem="7YB-kY-l2U" secondAttribute="top" constant="100" id="OVM-Fr-MP5"/>
+                            <constraint firstItem="7YB-kY-l2U" firstAttribute="trailing" secondItem="kzk-KI-uSR" secondAttribute="trailing" constant="50" id="RHs-Cb-scI"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwA-UY-wZd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -76,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qq1-vn-Msf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="54"/>
+            <point key="canvasLocation" x="2448" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CEe-3M-7MC">
