@@ -10,25 +10,32 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    var vc: secvondcontroller?
- 
+
+    @IBOutlet weak var Dif: UIButton!
+    var Vc: secvondcontroller?
+    
     @IBOutlet weak var StartGameText: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "StartGame") as? secvondcontroller
+        
+        Vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "StartGame") as? secvondcontroller
         self.navigationController?.isNavigationBarHidden = true
         StartGameText.layer.cornerRadius = 20
+        Dif.layer.cornerRadius = 20
+        
     }
   
     @IBAction func StartGame(_ sender: Any) {
-         guard let vcc = vc else {
+         guard let SecondView = Vc else {
                      return
                  }
-         _ = vcc.view
+       
+        
+        _ = SecondView.view
      
         
        
-        navigationController?.show(vcc, sender: nil)
+        navigationController?.show(SecondView, sender: nil)
     }
     override var shouldAutorotate: Bool {
         return true

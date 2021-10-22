@@ -8,25 +8,33 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
-    
+class GameScene: SKScene,SKPhysicsContactDelegate {
 
-    
-    var sprite = SKSpriteNode(color: SKColor.white, size: CGSize(width:32, height:32))
+
+  
+    var Player = SKSpriteNode(color: SKColor.white, size: CGSize(width:32, height:32))
    
-    let bulletcatagory: UInt32 = 1*0 << 1
+    let BulletCatagory: UInt32 = 0x1 << 0
       
-    let EnemyCat: UInt32 = 1*0 << 1
+    let EnemyCatagory: UInt32 = 1
     
     
-    var background: SKSpriteNode?
+    var ScoreLabel: SKLabelNode!
+    var Score: Int = 0 {
+        didSet{
+            ScoreLabel.text = "Cчёт: \(Score)"
+        }
+    }
     
-    var plas: SKSpriteNode?
+    
+   
+    var Enemys = ["RD1","RD2","RD3","RD4"]
+    var Plas: SKSpriteNode?
   
     var touched: Bool = false
     
-    var location = CGPoint.zero
-  
+    var Location = CGPoint.zero
+
  
     var GameTimer: Timer!
  
@@ -34,127 +42,187 @@ class GameScene: SKScene {
     
     var ShotTime: Double = 0.0
     
-    
-    
-    override func didMove(to view: SKView) {
-       
-       
-        
-        sprite = SKSpriteNode(imageNamed: "1")
-        
-        sprite.size = CGSize(width: 150, height: 150)
-        
-        sprite.position = CGPoint(x:0, y:-500)
-        
-        background = SKSpriteNode(imageNamed: "map")
-        
-        background?.size = CGSize(width: 1280, height: 2000)
-      
-        ShotTime = 0.5
-    
-        GameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(Enemy), userInfo: nil, repeats: true )
-        
-        EnemyTime = Timer.scheduledTimer(timeInterval: ShotTime, target: self, selector: #selector(bullet), userInfo: nil, repeats: true)
-    
-       
-        
-        self.addChild(background!)
-        
-        self.addChild(sprite)
-    
-      
-         }
+    var backgroundeffect: SKEmitterNode!
    
+    override func didMove(to view: SKView) {
 
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+       
+        self.physicsWorld.contactDelegate = self
+      
+        backgroundeffect = SKEmitterNode(fileNamed: "Star")
 
+        backgroundeffect.position = CGPoint(x: 0, y: 1000)
+        backgroundeffect.advanceSimulationTime(20)
+        ScoreLabel = SKLabelNode(text: "Cчёт: 0")
+      
+        Player = SKSpriteNode(imageNamed: "starship")
+        
+        ScoreLabel.fontName = "AmericanTypewriter-Bold"
+        ScoreLabel.fontSize = 60
+        ScoreLabel.fontColor = UIColor.white
+        ScoreLabel.position = CGPoint(x: -450, y: 700)
+        
+        Player.size = CGSize(width: 150, height: 150)
+        
+        Score = 0
+        
+        
+    
+        Player.position = CGPoint(x:0, y:-500)
+        
+        self.backgroundColor = UIColor.black
+        ShotTime = 0.4
+      
+        
+           
+        
+      EnemyTime = Timer.scheduledTimer(timeInterval: ShotTime, target: self, selector: #selector(Bullet), userInfo: nil, repeats: true)
+
+        GameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(AddEnemy), userInfo: nil, repeats: true )
+       
+        
+       
+     //   self.addChild(background!)
+        self.addChild(backgroundeffect)
+        self.addChild(Player)
+        self.addChild(ScoreLabel)
+     
+     
+         }
+    
+  
+  
+  
+
+    func didBegin(_ contact: SKPhysicsContact) {
+        var EnemyBody:SKPhysicsBody
+        var BulletBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask  {
+            BulletBody = contact.bodyA
+            EnemyBody = contact.bodyB
+        } else {
+            EnemyBody = contact.bodyB
+            BulletBody = contact.bodyA
+            
+        }
+        
+        if (EnemyBody.categoryBitMask & EnemyCatagory) != 0 && (BulletBody.categoryBitMask & BulletCatagory) != 0 {
+            Coolision(BulletNode: BulletBody.node as! SKSpriteNode, EnemyNode: EnemyBody.node as! SKSpriteNode)
+        }
+      
+    }
+       
+        
+    
+    func Coolision(BulletNode: SKSpriteNode, EnemyNode: SKSpriteNode){
+       let explosion = SKEmitterNode(fileNamed: "Vzriv")
+        explosion?.position = EnemyNode.position
+        self.addChild(explosion!)
+        self.run(SKAction.playSoundFileNamed("Demol", waitForCompletion: false))
+        
+        BulletNode.removeFromParent()
+        EnemyNode.removeFromParent()
+        self.run(SKAction.wait(forDuration: 1)){
+            explosion?.removeFromParent()
+        }
+        
+        Score += 1
+
+    }
 
     // Cтрельба
-  @objc  func bullet(){
-        let bullet = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 10, height: 10))
+  @objc  func Bullet(){
+        let Bullet = SKSpriteNode(color: SKColor.red, size: CGSize(width: 10, height: 40))
    
-        bullet.position = sprite.position
-        bullet.position.y += 90
-        bullet.physicsBody = SKPhysicsBody(circleOfRadius: bullet.size.width / 2)
-        bullet.physicsBody?.isDynamic = true
-        bullet.physicsBody?.categoryBitMask = bulletcatagory
-        bullet.physicsBody?.collisionBitMask = 0
-        self.addChild(bullet)
+        Bullet.position = Player.position
+        Bullet.position.y += 90
+        Bullet.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        Bullet.physicsBody?.isDynamic = true
+        Bullet.physicsBody?.categoryBitMask = BulletCatagory
+        Bullet.physicsBody?.contactTestBitMask = EnemyCatagory
+         Bullet.physicsBody?.collisionBitMask = 0
+        Bullet.physicsBody?.usesPreciseCollisionDetection = true
+        self.addChild(Bullet)
         
-        let duraction: TimeInterval = 1
-        var action = [SKAction]()
-        action.append(SKAction.move(to: CGPoint(x: sprite.position.x, y: 1000), duration: duraction))
-        action.append(SKAction.removeFromParent())
-        bullet.run(SKAction.sequence(action))
+    let duraction: TimeInterval = 0.3
+        var Action = [SKAction]()
+        Action.append(SKAction.move(to: CGPoint(x: Player.position.x, y: 1000), duration: duraction))
+        Action.append(SKAction.removeFromParent())
+        Bullet.run(SKAction.sequence(Action))
+    self.run(SKAction.playSoundFileNamed("fire", waitForCompletion: false))
         
         
         
     }
     // Появление Врагов
-  @objc   func Enemy(){
-        
-        
-        let enemy = SKSpriteNode(color: SKColor.white, size: CGSize(width: 100, height: 100))
-  
-    let Randompos = GKRandomDistribution(lowestValue: -630, highestValue: 630)
+  @objc   func AddEnemy(){
+    Enemys = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: Enemys) as! [String]
+    
+    let Enemy = SKSpriteNode(imageNamed: Enemys[0])
+    
+    
+     let Randompos = GKRandomDistribution(lowestValue: -630, highestValue: 630)
        
-        let pos = CGFloat(Randompos.nextInt())
+        let Pos = CGFloat(Randompos.nextInt())
    
-        enemy.position = CGPoint(x: pos, y: 1000)
+        Enemy.position = CGPoint(x: Pos, y: 1000)
     
-        enemy.physicsBody = SKPhysicsBody(circleOfRadius: enemy.size.width)
+        Enemy.physicsBody = SKPhysicsBody(circleOfRadius: 100)
        
-        enemy.physicsBody?.isDynamic = true
+        Enemy.physicsBody?.isDynamic = true
         
-        enemy.physicsBody?.categoryBitMask = EnemyCat
+        Enemy.physicsBody?.categoryBitMask = EnemyCatagory
         
-        enemy.physicsBody?.contactTestBitMask = bulletcatagory
+        Enemy.physicsBody?.contactTestBitMask = BulletCatagory
         
-        enemy.physicsBody?.collisionBitMask = 0
+        Enemy.physicsBody?.collisionBitMask = 0
+     
         
-        let duraction: TimeInterval = 8
-        var action = [SKAction]()
+        let Duraction: TimeInterval = 6
+        var Action = [SKAction]()
     
-    action.append(SKAction.move(to: CGPoint(x: pos, y: -1200), duration: duraction))
+    Action.append(SKAction.move(to: CGPoint(x: Pos, y: -1200), duration: Duraction))
         
-    action.append(SKAction.removeFromParent())
+    Action.append(SKAction.removeFromParent())
        
-    enemy.run(SKAction.sequence(action))
+    Enemy.run(SKAction.sequence(Action))
         
-        self.addChild(enemy)
+        self.addChild(Enemy)
     }
     
     
     
   // Передвежение Персонажа
-    func moveNodeToLocation() {
+    func MoveNodeToLocation() {
       
-        var dx = location.x - sprite.position.x
+        var Dx = Location.x - Player.position.x
        
-        var dy = location.y - sprite.position.y
+        var Dy = Location.y - Player.position.y
        
-        let speed:CGFloat = 0.3
+        let Speed:CGFloat = 0.3
       
-        dx = dx * speed
+        Dx = Dx * Speed
       
-        dy = dy * speed
+        Dy = Dy * Speed
         
-        sprite.position = CGPoint(x:sprite.position.x+dx, y: sprite.position.y+dy)
+        Player.position = CGPoint(x:Player.position.x+Dx, y: Player.position.y+Dy)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         touched = true
         
     
-        var touch = touches
+        
         
         for touch in touches {
-            location = touch.location(in:self)
+            Location = touch.location(in:self)
            
         }
       
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            location = touch.location(in: self)
+            Location = touch.location(in: self)
            
         }
        
@@ -169,10 +237,10 @@ class GameScene: SKScene {
   // Постоянное обновление
     override func update(_ currentTime: TimeInterval) {
         if (touched) {
-            moveNodeToLocation()
+            MoveNodeToLocation()
         }
-
-        
+      
+       
         
     }
    

@@ -17,40 +17,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5E-md-stx">
-                                <rect key="frame" x="70" y="702" width="60" height="60"/>
+                                <rect key="frame" x="132" y="355" width="150" height="40"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="VAh-lf-7h5"/>
-                                    <constraint firstAttribute="width" constant="60" id="eVw-eK-KjU"/>
+                                    <constraint firstAttribute="height" constant="40" id="VAh-lf-7h5"/>
+                                    <constraint firstAttribute="width" constant="150" id="eVw-eK-KjU"/>
                                 </constraints>
-                                <state key="normal" title=" Solo">
+                                <state key="normal" title="Играть">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
                                     <action selector="StartGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="QL4-wN-5ng"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NF5-0m-XhA">
-                                <rect key="frame" x="303" y="702" width="60" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZNEOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0V-gX-b3V">
+                                <rect key="frame" x="124" y="245" width="166" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCj-6n-OwQ">
+                                <rect key="frame" x="137" y="465" width="140" height="40"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="TjH-Lb-4jh"/>
-                                    <constraint firstAttribute="height" constant="60" id="rar-if-n3B"/>
+                                    <constraint firstAttribute="height" constant="40" id="N3h-VK-N1F"/>
+                                    <constraint firstAttribute="width" constant="140" id="TmT-uA-iv3"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Сложность">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="F5E-md-stx" secondAttribute="bottom" constant="100" id="KAz-19-8tV"/>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="NF5-0m-XhA" secondAttribute="bottom" constant="100" id="mbb-v2-A9D"/>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="NF5-0m-XhA" secondAttribute="trailing" constant="51" id="vxj-ec-clk"/>
-                            <constraint firstItem="F5E-md-stx" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="70" id="wYv-CN-O6o"/>
+                            <constraint firstItem="vCj-6n-OwQ" firstAttribute="top" secondItem="F5E-md-stx" secondAttribute="bottom" constant="70" id="CDf-PE-xWZ"/>
+                            <constraint firstItem="k0V-gX-b3V" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" constant="-200" id="YAa-sv-81B"/>
+                            <constraint firstItem="vCj-6n-OwQ" firstAttribute="centerX" secondItem="F5E-md-stx" secondAttribute="centerX" id="Yc7-17-TCm"/>
+                            <constraint firstItem="F5E-md-stx" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="aat-mH-zkQ"/>
+                            <constraint firstItem="F5E-md-stx" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" constant="-100" id="nG3-7a-noe"/>
+                            <constraint firstItem="F5E-md-stx" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="rXx-yR-Kvb"/>
+                            <constraint firstItem="k0V-gX-b3V" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="vHp-NT-JCx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="swk-2G-0eQ"/>
                     <value key="contentSizeForViewInPopover" type="size" width="1284" height="2778"/>
                     <connections>
+                        <outlet property="Dif" destination="vCj-6n-OwQ" id="cY4-DC-4ay"/>
                         <outlet property="StartGameText" destination="F5E-md-stx" id="X53-4C-j4u"/>
                     </connections>
                 </viewController>
@@ -66,27 +79,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzk-KI-uSR">
-                                <rect key="frame" x="264" y="144" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Upx-ib-tQd"/>
-                                    <constraint firstAttribute="height" constant="100" id="tCK-5c-FjZ"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cym-Id-dwF">
+                                <rect key="frame" x="184" y="438" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6R-Ul-rP4">
-                                <rect key="frame" x="186" y="340" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7YB-kY-l2U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kzk-KI-uSR" firstAttribute="top" secondItem="7YB-kY-l2U" secondAttribute="top" constant="100" id="OVM-Fr-MP5"/>
-                            <constraint firstItem="7YB-kY-l2U" firstAttribute="trailing" secondItem="kzk-KI-uSR" secondAttribute="trailing" constant="50" id="RHs-Cb-scI"/>
+                            <constraint firstItem="Cym-Id-dwF" firstAttribute="centerY" secondItem="7YB-kY-l2U" secondAttribute="centerY" id="5cs-rK-jng"/>
+                            <constraint firstItem="Cym-Id-dwF" firstAttribute="centerX" secondItem="7YB-kY-l2U" secondAttribute="centerX" id="sXZ-7a-JPS"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -137,6 +139,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

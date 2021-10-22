@@ -10,37 +10,37 @@ import SpriteKit
 import GameplayKit
 
 class secvondcontroller: UIViewController {
-    var sceneView: SKView?
+    var SceneView: SKView?
 
     override func loadView() {
-        sceneView = SKView()
-        sceneView!.backgroundColor = .white
+        SceneView = SKView()
+        SceneView!.backgroundColor = .white
 
-        self.view = sceneView
+        self.view = SceneView
     }
     
-    func startgame() {
-        let transition = SKTransition.flipVertical(withDuration: 0.5)
-        if let view = self.view as! SKView? {
+    func StartGame() {
+        let Transition = SKTransition.flipVertical(withDuration: 0.5)
+        if let View = self.view as! SKView? {
             
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let Scene = SKScene(fileNamed: "GameScene") {
 
-                scene.scaleMode = .aspectFill
+                Scene.scaleMode = .aspectFill
                 
                 
-                view.presentScene(scene, transition: transition)
+                View.presentScene(Scene, transition: Transition)
             }
         
             
-            view.showsFPS = true
-            view.showsNodeCount = true
+            View.showsFPS = true
+            View.showsNodeCount = true
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
             loadView()
-        startgame()
+        StartGame()
         
         
    

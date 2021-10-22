@@ -18,6 +18,12 @@
 		8C32172826BD404D003C0A3A /* TowerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32172726BD404D003C0A3A /* TowerTests.swift */; };
 		8C32173326BD404D003C0A3A /* TowerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32173226BD404D003C0A3A /* TowerUITests.swift */; };
 		8C461F5A26C2F97D00E46348 /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C461F5926C2F97D00E46348 /* Rain.sks */; };
+		8C53B17E2722A710006CABF0 /* Vzriv.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C53B17D2722A710006CABF0 /* Vzriv.sks */; };
+		8C53B1852722A8B4006CABF0 /* end.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C53B1822722A8B4006CABF0 /* end.mp3 */; };
+		8C53B1862722A8B4006CABF0 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C53B1832722A8B4006CABF0 /* 1.wav */; };
+		8C53B1972722ABF4006CABF0 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C53B1962722ABF4006CABF0 /* fire.mp3 */; };
+		8C53B1A22722ACC5006CABF0 /* Demol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C53B1A12722ACC4006CABF0 /* Demol.mp3 */; };
+		8C53B1AD2722AEBF006CABF0 /* Star.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C53B1AC2722AEBF006CABF0 /* Star.sks */; };
 		8CFA894826CFB9A100E1580B /* Skvieeew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA894726CFB9A100E1580B /* Skvieeew.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +62,12 @@
 		8C32173226BD404D003C0A3A /* TowerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerUITests.swift; sourceTree = "<group>"; };
 		8C32173426BD404D003C0A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C461F5926C2F97D00E46348 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
+		8C53B17D2722A710006CABF0 /* Vzriv.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Vzriv.sks; sourceTree = "<group>"; };
+		8C53B1822722A8B4006CABF0 /* end.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = end.mp3; sourceTree = "<group>"; };
+		8C53B1832722A8B4006CABF0 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
+		8C53B1962722ABF4006CABF0 /* fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fire.mp3; sourceTree = "<group>"; };
+		8C53B1A12722ACC4006CABF0 /* Demol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Demol.mp3; sourceTree = "<group>"; };
+		8C53B1AC2722AEBF006CABF0 /* Star.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Star.sks; sourceTree = "<group>"; };
 		8CFA894726CFB9A100E1580B /* Skvieeew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skvieeew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,11 +123,17 @@
 				8C32171126BD4049003C0A3A /* GameScene.sks */,
 				8C32171326BD4049003C0A3A /* Actions.sks */,
 				8C32171526BD4049003C0A3A /* GameScene.swift */,
+				8C53B17D2722A710006CABF0 /* Vzriv.sks */,
 				8C461F5926C2F97D00E46348 /* Rain.sks */,
+				8C53B1AC2722AEBF006CABF0 /* Star.sks */,
 				8C32171726BD4049003C0A3A /* GameViewController.swift */,
 				8C2A489C26C6A836001125D5 /* secvondcontroller.swift */,
 				8CFA894726CFB9A100E1580B /* Skvieeew.swift */,
 				8C32171926BD4049003C0A3A /* Main.storyboard */,
+				8C53B1832722A8B4006CABF0 /* 1.wav */,
+				8C53B1A12722ACC4006CABF0 /* Demol.mp3 */,
+				8C53B1962722ABF4006CABF0 /* fire.mp3 */,
+				8C53B1822722A8B4006CABF0 /* end.mp3 */,
 				8C32171C26BD404C003C0A3A /* Assets.xcassets */,
 				8C32171E26BD404C003C0A3A /* Info.plist */,
 			);
@@ -244,10 +262,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C32171B26BD4049003C0A3A /* Main.storyboard in Resources */,
+				8C53B1972722ABF4006CABF0 /* fire.mp3 in Resources */,
+				8C53B1862722A8B4006CABF0 /* 1.wav in Resources */,
+				8C53B17E2722A710006CABF0 /* Vzriv.sks in Resources */,
+				8C53B1852722A8B4006CABF0 /* end.mp3 in Resources */,
+				8C53B1AD2722AEBF006CABF0 /* Star.sks in Resources */,
 				8C32171226BD4049003C0A3A /* GameScene.sks in Resources */,
 				8C32171D26BD404C003C0A3A /* Assets.xcassets in Resources */,
 				8C461F5A26C2F97D00E46348 /* Rain.sks in Resources */,
 				8C32171426BD4049003C0A3A /* Actions.sks in Resources */,
+				8C53B1A22722ACC5006CABF0 /* Demol.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
